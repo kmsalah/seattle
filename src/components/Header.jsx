@@ -33,6 +33,9 @@ const Header = () => (
         <Link to="/people">
           <HeadingTab style={{ marginLeft: "10px" }}>People</HeadingTab>
         </Link>
+        <Link to="/bills">
+          <HeadingTab style={{ marginLeft: "10px" }}>Bills</HeadingTab>
+        </Link>
       </Container>
     </Segment>
   </React.Fragment>

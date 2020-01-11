@@ -12,17 +12,12 @@ const StyledCardContent = styled(Card.Content)({
   padding: "0 !important"
 });
 
-const EventCard = ({ name, date, description, link, query }) => {
+const BillCard = ({id, name, matter, created, link, }) => {
   const getLinkParameters = () => {
     // Shorten whitespaces to one whitespace
-    const prettyQuery = query ? query.trim().replace(/\s+/g, ' ') : ''
     const linkParameters = {
       // For search parameter, replace whitespaces with `+`
       pathname: link,
-      search: prettyQuery ? `?q=${prettyQuery.replace(/\s+/g, '+')}` : '',
-      state: {
-        query: prettyQuery
-      }
     }
     return linkParameters;
   }
@@ -35,11 +30,10 @@ const EventCard = ({ name, date, description, link, query }) => {
             {name}
           </Link>
         </Card.Header>
-        <Card.Meta>{getDateTime(date)}</Card.Meta>
-        <Card.Description>{description}</Card.Description>
+        <Card.Meta>{getDateTime(created)}</Card.Meta>
       </StyledCardContent>
     </StyledCard >
   )
 };
 
-export default EventCard;
+export default BillCard;

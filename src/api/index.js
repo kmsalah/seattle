@@ -1,5 +1,6 @@
 import { getAllBodies, getAllEvents, getEventById, getEventsByIndexedTerm, getFilteredEvents } from './eventApi';
 import { getAllPeople, getVotesForPerson } from './personApi';
+import { getAllEventMinutesItems } from './billApi';
 
 export {
     getAllBodies,
@@ -9,4 +10,5 @@ export {
     getEventsByIndexedTerm,
     getFilteredEvents,
     getVotesForPerson,
+    getAllEventMinutesItems
 }
