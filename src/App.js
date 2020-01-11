@@ -11,7 +11,7 @@ import AllEvents from "./pages/AllEvents";
 import People from "./pages/People";
 import Person from "./pages/Person";
 import AllBills from "./pages/AllBills";
-//import Bill from "./pages/Bill";
+import Bill from "./pages/Bill";
 
 // Run Google Analytics
 ReactGA.initialize("UA-145893191-1");
@@ -27,6 +27,7 @@ const App = () => (
       <Route exact path="/people" component={withTracker(People)} />
       <Route exact path="/people/:id" component={withTracker(Person)} />
       <Route exact path="/bills" component={withTracker(AllBills)} />
+      <Route exact path="/bills/:id" component={withTracker(Bill)} />
     </Switch>
     <Footer />
   </Router>

@@ -30,6 +30,7 @@ const BillCard = ({id, name, matter, created, link, }) => {
             {name}
           </Link>
         </Card.Header>
+        <Card.Meta>{matter}</Card.Meta>
         <Card.Meta>{getDateTime(created)}</Card.Meta>
       </StyledCardContent>
     </StyledCard >

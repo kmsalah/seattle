@@ -7,6 +7,7 @@ const BillCardGroup = ({ bills, query }) => {
     <Card.Group centered>
       {bills.map(({id, name, matter, created, link}) => (
         <BillCard
+          key={id}
           id={id}
           name={name}
           matter={matter ? matter : "matter"}

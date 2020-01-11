@@ -15,7 +15,7 @@ export async function getAllEventMinutesItems() {
             "minutes_item",
             [new WhereCondition(["matter", WHERE_OPERATORS.gteq, ""])],
            null,
-            20
+            100
         );
 
         //const bills = await getAllBills(allMinutesItems);
@@ -69,3 +69,31 @@ export async function getAllMinutesItems() {
         return Promise.reject(e);
     }
 }
+
+//id == minutes_item_id
+export async function getBillById(id) {
+  try {
+    const minutes_item = await db.selectRowById("minutes_item", id);
+    const allEventMinutesItem = await db.selectRowsAsArray(
+            "event_minutes_item",
+            [],
+           new OrderCondition(['created', ORDER_OPERATORS.asc])
+        );
+    for(let i = 0; i<allEventMinutesItem.length; i++) {
+    	if(id == allEventMinutesItem[i].minutes_item_id) {
+    		return {
+    			name: minutes_item.name,
+    			matter: minutes_item.matter,
+    			decision: allEventMinutesItem[i].decision,
+    			event_id: allEventMinutesItem[i].event_id
+    		}
+    	}
+    }
+    
+    return null;
+  } catch (e) {
+    return Promise.reject(e);
+  }
+}
+
+
